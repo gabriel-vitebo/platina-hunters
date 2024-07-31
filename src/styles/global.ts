@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     font-family: ${({ theme }) => theme.FONTS.primary};
     background-color:  ${({ theme }) => theme.COLORS.blackBG};
+
   }
 
 

@@ -1,5 +1,5 @@
 import { Container } from './style.ts'
-import { FaTrophy } from 'react-icons/fa'
+import { FaTrophy, FaPlus } from 'react-icons/fa'
 
 interface MyGamesCardProps {
   image: string
@@ -24,7 +24,17 @@ export function GamesCard({
         <p>{totalAchievement}</p>
       </div>
 
-      {isItAdded ? <h1>Hello World</h1> : <h1>Ola mundo</h1>}
+      {isItAdded ? (
+        <div className="status">
+          <p>Jogo adicionado</p>
+          <button>Ver Progresso</button>
+        </div>
+      ) : (
+        <button className="addGameButton">
+          <FaPlus size={15} />
+          Adicionar Jogo
+        </button>
+      )}
     </Container>
   )
 }

@@ -51,7 +51,7 @@ export const Container = styled.div<ContainerProps>`
     height: 8px;
     background-color: ${({ theme }) => theme.COLORS.whiteBG};
     border-radius: 4px;
-    overflow: hidden;
+    overflow: visible;
     position: relative;
   }
 
@@ -61,8 +61,8 @@ export const Container = styled.div<ContainerProps>`
   }
 
   .circle {
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     background-color: ${({ theme }) => theme.COLORS.primary};
     border-radius: 50%;
     position: absolute;

@@ -1,47 +1,97 @@
-import { ReactNode, useState } from 'react'
-import { BsController } from 'react-icons/bs'
+import { useState } from 'react'
 
 import { Container } from './style.ts'
 import { Search } from '../Search'
+import { MyGamesCard } from '../MyGamesCard'
+import assassinsCreedImage from '../../assets/assassinscreed.png'
+import eldenringImage from '../../assets/eldenring.png'
+import hogwartsLegacyImage from '../../assets/hogwartsLegacy.png'
+import godOfWarImage from '../../assets/godOfWar.png'
 
-interface SectionHomeProps {
-  children?: ReactNode
-}
+import { GamesCard } from '../GamesCard'
 
-export function SectionHome({ children }: SectionHomeProps) {
-  const [activeButton, setActiveButton] = useState<'myGames' | 'games'>(
-    'myGames',
-  )
+export function SectionHome() {
+  const [currentActiveButton, setCurrentActiveButton] = useState<
+    'myGames' | 'games'
+  >('myGames')
 
   return (
     <Container>
       <div className="optionButton">
         <button
-          className={`${activeButton === 'myGames' ? 'selected' : 'unselected'} myGamesBorder`}
-          onClick={() => setActiveButton('myGames')}
+          className={`${currentActiveButton === 'myGames' ? 'selected' : 'unselected'} myGamesBorder`}
+          onClick={() => setCurrentActiveButton('myGames')}
         >
           Meus Jogos
         </button>
         <button
-          className={`${activeButton === 'games' ? 'selected' : 'unselected'} gamesBorder`}
-          onClick={() => setActiveButton('games')}
+          className={`${currentActiveButton === 'games' ? 'selected' : 'unselected'} gamesBorder`}
+          onClick={() => setCurrentActiveButton('games')}
         >
           Jogos
         </button>
       </div>
-
-      {children ? (
-        <div className="content">
-          <Search />
-
-          {children}
-        </div>
-      ) : (
-        <div className="withoutContent">
-          <BsController size={150} />
-          <p>Nenhum Jogo Encontrado</p>
-        </div>
-      )}
+      <div className="content">
+        <Search />
+        {currentActiveButton === 'myGames' ? (
+          <>
+            <MyGamesCard
+              image={assassinsCreedImage}
+              title="Assassin's Creed Odyssey"
+              total={93}
+              completed={38}
+              progress={43}
+            />
+            <MyGamesCard
+              image={eldenringImage}
+              title="Elden Ring"
+              total={42}
+              completed={4}
+              progress={9}
+            />
+            <MyGamesCard
+              image={hogwartsLegacyImage}
+              title="Hogwarts Legacy"
+              total={45}
+              completed={45}
+              progress={100}
+            />
+          </>
+        ) : (
+          <>
+            <GamesCard
+              title="Assassin's Creed Odyssey"
+              image={assassinsCreedImage}
+              totalAchievement={93}
+              isItAdded={true}
+            />
+            <GamesCard
+              title="Elden Ring"
+              image={eldenringImage}
+              totalAchievement={42}
+              isItAdded={true}
+            />
+            <GamesCard
+              title="God of War"
+              image={godOfWarImage}
+              totalAchievement={37}
+              isItAdded={false}
+            />
+            <GamesCard
+              title="Hogwarts Legacy"
+              image={hogwartsLegacyImage}
+              totalAchievement={45}
+              isItAdded={true}
+            />
+          </>
+        )}
+      </div>
+      )
     </Container>
   )
 }
+
+/// <div className="withoutContent">
+// <BsController size={150}/>
+// <p>Nenhum Jogo Encontrado</p>
+// </div>

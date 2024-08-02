@@ -8,7 +8,7 @@ interface MyGamesCardProps {
   isItAdded: boolean
 }
 
-export function MyGamesCard({
+export function GamesCard({
   image,
   title,
   totalAchievement,

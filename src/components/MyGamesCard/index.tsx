@@ -17,10 +17,11 @@ export function MyGamesCard({
   progress,
 }: MyGamesCardProps) {
   return (
-    <Container>
+    <Container progress={progress}>
       <img src={image} alt="Imagem do jogo" />
       <h2>{title}</h2>
       <div className="progress-bar">
+        <div className="circle"></div>
         <div className="progress" style={{ width: `${progress}%` }}></div>
       </div>
 

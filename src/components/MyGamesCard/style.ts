@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface ContainerProps {
+  progress: number
+}
+
+export const Container = styled.div<ContainerProps>`
   display: grid;
   grid-template-columns: 60px 60px auto;
   grid-template-rows: 1fr auto;
@@ -54,7 +58,18 @@ export const Container = styled.div`
   .progress {
     height: 100%;
     background-color: ${({ theme }) => theme.COLORS.greenBG};
-    position: relative;
+  }
+
+  .circle {
+    width: 10px;
+    height: 10px;
+    background-color: ${({ theme }) => theme.COLORS.primary};
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: calc(${({ progress }) => progress}%);
+    z-index: 2;
   }
 
   .percentage {

@@ -2,12 +2,13 @@ import { ReactNode, useState } from 'react'
 import { BsController } from 'react-icons/bs'
 
 import { Container } from './style.ts'
+import { Search } from '../Search'
 
-interface HomeCardProps {
+interface SectionHomeProps {
   children?: ReactNode
 }
 
-export function HomeCard({ children }: HomeCardProps) {
+export function SectionHome({ children }: SectionHomeProps) {
   const [activeButton, setActiveButton] = useState<'myGames' | 'games'>(
     'myGames',
   )
@@ -28,8 +29,13 @@ export function HomeCard({ children }: HomeCardProps) {
           Jogos
         </button>
       </div>
+
       {children ? (
-        <div className="content">{children}</div>
+        <div className="content">
+          <Search />
+
+          {children}
+        </div>
       ) : (
         <div className="withoutContent">
           <BsController size={150} />

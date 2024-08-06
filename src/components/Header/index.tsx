@@ -4,7 +4,7 @@ import { BiArrowBack } from 'react-icons/bi'
 import { Container, PopUp } from './style.ts'
 import { useState } from 'react'
 
-export function Header() {
+export function HeaderDetails() {
   const [popUp, setPopUp] = useState(false)
 
   return (

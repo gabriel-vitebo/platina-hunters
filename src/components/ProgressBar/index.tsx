@@ -5,13 +5,19 @@ interface ProgressBarProps {
   progress: number
   completed: number
   total: number
+  statsSize: number
 }
 
-export function ProgressBar({ progress, completed, total }: ProgressBarProps) {
+export function ProgressBar({
+  progress,
+  completed,
+  total,
+  statsSize,
+}: ProgressBarProps) {
   return (
-    <Container progress={progress}>
+    <Container progress={progress} statsSize={statsSize}>
       <div className="stats">
-        <FaTrophy size={20} />
+        <FaTrophy size={statsSize} />
         <p>
           {completed}/{total}
         </p>

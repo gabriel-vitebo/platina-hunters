@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface ContainerProps {
   progress: number
+  statsSize: number
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -17,7 +18,7 @@ export const Container = styled.div<ContainerProps>`
     gap: 5px;
 
     > p {
-      font-size: 20px;
+      font-size: ${({ statsSize }) => statsSize}px;
       margin-right: 5px;
     }
   }

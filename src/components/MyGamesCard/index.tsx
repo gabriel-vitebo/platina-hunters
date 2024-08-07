@@ -1,5 +1,5 @@
 import { Container } from './style.ts'
-import { FaTrophy } from 'react-icons/fa'
+import { ProgressBar } from '../ProgressBar'
 
 interface MyGamesCardProps {
   image: string
@@ -20,17 +20,12 @@ export function MyGamesCard({
     <Container progress={progress}>
       <img src={image} alt="Imagem do jogo" />
       <h2>{title}</h2>
-      <div className="progress-bar">
-        <div className="circle"></div>
-        <div className="progress" style={{ width: `${progress}%` }}></div>
-      </div>
-
-      <div className="stats">
-        <FaTrophy size={15} />
-        <p>
-          {completed}/{total}
-        </p>
-      </div>
+      <ProgressBar
+        progress={progress}
+        completed={completed}
+        total={total}
+        statsSize={15}
+      />
       <div className="percentage">
         <p>{progress}%</p>
       </div>

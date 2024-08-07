@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 2px 7px 10px 10px;
-  border-radius: 0 0 5px 5px;
+  border-radius: 5px;
   background-color: ${({ theme }) => theme.COLORS.secondary};
 
   .withoutContent {

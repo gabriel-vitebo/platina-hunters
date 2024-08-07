@@ -1,12 +1,13 @@
 import { HeaderDetails } from '../../components/HeaderDetails'
 import { Container } from './style.ts'
-import { SectionHome } from '../../components/SectionHome'
+import eldenringImage from '../../assets/eldenring.png'
+import { Section } from '../../components/Section'
 
 export function GameProgress() {
   return (
     <Container>
-      <HeaderDetails />
-      <SectionHome />
+      <HeaderDetails isItAdded={true} image={eldenringImage} />
+      <Section />
     </Container>
   )
 }

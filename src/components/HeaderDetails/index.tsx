@@ -1,20 +1,28 @@
-import logo from '../../assets/logo.jpeg'
 import { BiArrowBack } from 'react-icons/bi'
-import { IoIosCloseCircle } from 'react-icons/io'
+import { IoIosCloseCircle, IoIosAddCircle } from 'react-icons/io'
 
 import { Container } from './style.ts'
 
-export function HeaderDetails() {
+interface HeaderDetailsProps {
+  isItAdded: boolean
+  image: string
+}
+
+export function HeaderDetails({ isItAdded, image }: HeaderDetailsProps) {
   return (
     <Container>
       <button className="back-button">
         <BiArrowBack size={15} className="back-icon" />
         voltar
       </button>
-      <img src={logo} alt="Elden Ring" className="game-logo" />
-      <div className="delete-button">
+      <img src={image} alt="" className="game-logo" />
+      <div className="title-content">
         <h1 className="game-title">Elden Ring</h1>
-        <IoIosCloseCircle size={20} />
+        {isItAdded ? (
+          <IoIosCloseCircle className="added" size={20} />
+        ) : (
+          <IoIosAddCircle className="notAdded" size={20} />
+        )}
       </div>
     </Container>
   )

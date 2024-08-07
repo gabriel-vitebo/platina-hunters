@@ -51,13 +51,17 @@ export const Container = styled.div`
     margin-bottom: 5px;
   }
 
-  .delete-button {
+  .title-content {
     display: flex;
     align-items: center;
     gap: 7px;
 
-    > svg {
+    > .added {
       color: ${({ theme }) => theme.COLORS.redBG};
+    }
+
+    > .notAdded {
+      color: ${({ theme }) => theme.COLORS.greenBG};
     }
 
     > .game-title {

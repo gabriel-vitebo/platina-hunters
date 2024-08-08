@@ -11,5 +11,3 @@ export function GameProgress() {
     </Container>
   )
 }
-
-// todo: criar o componente de header dessa sessao, e criar o componente de section dessa pagina

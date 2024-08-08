@@ -1,24 +1,21 @@
 import { Container } from './style.ts'
-import { MyGamesCard } from '../MyGamesCard'
 import { ProgressBar } from '../ProgressBar'
-import eldenringImage from '../../assets/eldenring.png'
+import { AchievementsCard } from '../AchievementsCard'
 
 export function Section() {
   return (
     <Container>
       <ProgressBar progress={9} total={42} completed={4} statsSize={20} />
-      <MyGamesCard
-        image={eldenringImage}
-        title="Elden Ring"
-        total={42}
-        completed={4}
-        progress={9}
+      <AchievementsCard
+        title="Armas Lendárias"
+        description="Obteve todas as armas lendárias"
+        isItLost={false}
+      />
+      <AchievementsCard
+        title="Cinzas Lendárias"
+        description="Obteve todas as cinzas lendárias"
+        isItLost={true}
       />
     </Container>
   )
 }
-
-/// <div className="withoutContent">
-// <BsController size={150}/>
-// <p>Nenhum Jogo Encontrado</p>
-// </div>

@@ -19,8 +19,7 @@ export function AchievementsCard({
   const [isDone, setIsDone] = useState(initialIsDone)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleToggle = (event: React.MouseEvent) => {
-    event.stopPropagation()
+  const handleToggle = () => {
     setIsDone((prevIsDone) => !prevIsDone)
   }
 
@@ -48,21 +47,36 @@ export function AchievementsCard({
         </div>
         <div className="buttons">
           {isDone ? (
-            <button className="doneButton" onClick={handleToggle}>
+            <button
+              className="doneButton"
+              onClick={(event) => {
+                event.stopPropagation()
+                handleToggle()
+              }}
+            >
               <MdDone size={40} />
             </button>
           ) : (
-            <button className="addButton" onClick={handleToggle}>
+            <button
+              className="addButton"
+              onClick={(event) => {
+                event.stopPropagation()
+                handleToggle()
+              }}
+            >
               <MdAdd size={40} />
             </button>
           )}
         </div>
       </Container>
 
-      <AchievementModal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </AchievementModal>
+      <AchievementModal
+        handleToggle={handleToggle}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        title={title}
+        isDone={isDone}
+      />
     </>
   )
 }

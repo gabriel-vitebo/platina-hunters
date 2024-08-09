@@ -1,16 +1,21 @@
 import { Container } from './style.ts'
-import { ReactNode } from 'react'
+import { IoCloseSharp } from 'react-icons/io5'
+import { MdAdd, MdDone } from 'react-icons/md'
 
 interface AchievementModalProps {
   isOpen: boolean
+  isDone: boolean
   onClose: () => void
-  children: ReactNode
+  handleToggle: () => void
+  title: string
 }
 
 export function AchievementModal({
   isOpen,
+  isDone,
   onClose,
-  children,
+  handleToggle,
+  title,
 }: AchievementModalProps) {
   if (!isOpen) return null
 
@@ -23,8 +28,17 @@ export function AchievementModal({
   return (
     <Container onClick={handleClickOutside}>
       <div className="Content">
-        <button onClick={onClose}>X</button>
-        {children}
+        <button onClick={onClose}>
+          <IoCloseSharp size={24} />
+        </button>
+        <div className="header">
+          <h2>{title}</h2>
+          {isDone ? (
+            <MdDone size={20} onClick={handleToggle} />
+          ) : (
+            <MdAdd size={20} onClick={handleToggle} />
+          )}
+        </div>
       </div>
     </Container>
   )

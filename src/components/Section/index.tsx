@@ -8,7 +8,7 @@ export function Section() {
       <ProgressBar progress={9} total={42} completed={4} statsSize={20} />
       <AchievementsCard
         title="Armas Lendárias"
-        description="Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias"
+        description="Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias Obteve todas as armas lendárias"
         isItLost={false}
         isDone={false}
       />

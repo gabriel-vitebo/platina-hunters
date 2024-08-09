@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+interface ContainerProps {
+  isModalOpen: boolean
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   background-color: ${({ theme }) => theme.COLORS.blackBG};
   border-radius: 8px;
@@ -34,6 +38,7 @@ export const Container = styled.div`
 
   .buttons {
     position: absolute;
+    display: ${({ isModalOpen }) => (isModalOpen ? 'none' : 'flex')};
 
     .addButton {
       display: flex;

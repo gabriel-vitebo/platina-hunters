@@ -5,7 +5,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: transparent;
-  color: ${({ theme }) => theme.COLORS.text};
   z-index: 2;
 
   .Content {
@@ -25,6 +24,7 @@ export const Container = styled.div`
   p {
     font-size: 16px;
     line-height: 1.5;
+    color: ${({ theme }) => theme.COLORS.text};
   }
   button {
     position: absolute;
@@ -52,5 +52,16 @@ export const Container = styled.div`
     svg {
       color: ${({ theme }) => theme.COLORS.greenBG};
     }
+  }
+
+  .descriptionBox {
+    padding: 5px 0 5px 0;
+    margin-top: 10px;
+    background: ${({ theme }) => theme.COLORS.secondary};
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    max-height: 400px;
+    overflow-y: auto;
   }
 `

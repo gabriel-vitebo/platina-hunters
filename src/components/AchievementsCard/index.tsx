@@ -75,6 +75,7 @@ export function AchievementsCard({
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={title}
+        description={description}
         isDone={isDone}
       />
     </>

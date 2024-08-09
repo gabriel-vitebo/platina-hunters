@@ -35,12 +35,25 @@ export const Container = styled.div`
   .buttons {
     position: absolute;
 
-    button {
+    .addButton {
       display: flex;
       align-items: center;
       justify-content: center;
       border: none;
       background: ${({ theme }) => theme.COLORS.greenBG};
+      height: 53px;
+      width: 53px;
+      position: relative;
+      left: 307px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .doneButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: ${({ theme }) => theme.COLORS.primary};
       height: 53px;
       width: 53px;
       position: relative;

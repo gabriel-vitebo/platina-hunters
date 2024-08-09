@@ -1,30 +1,45 @@
 import { Container } from './style.ts'
-import { MdAdd } from 'react-icons/md'
+import { MdAdd, MdDone } from 'react-icons/md'
+import { useState } from 'react'
 
 interface AchievementsCardProps {
   title: string
   description: string
   isItLost: boolean
+  isDone: boolean
 }
 
 export function AchievementsCard({
   title,
   description,
   isItLost,
+  isDone: initialIsDone,
 }: AchievementsCardProps) {
+  const [isDone, setIsDone] = useState(initialIsDone)
+
+  const handleToggle = () => {
+    setIsDone((prevIsDone) => !prevIsDone)
+  }
+
   return (
     <Container>
       <div className="content">
         <div className="isItLost">
           <h2>{title}</h2>
-          {isItLost && <span>(Perdivel)</span>}
+          {isDone ? <span>15/02/99</span> : isItLost && <span>(Perdível)</span>}
         </div>
         <p>{description}</p>
       </div>
       <div className="buttons">
-        <button>
-          <MdAdd size={40} />
-        </button>
+        {isDone ? (
+          <button className="doneButton" onClick={handleToggle}>
+            <MdDone size={40} />
+          </button>
+        ) : (
+          <button className="addButton" onClick={handleToggle}>
+            <MdAdd size={40} />
+          </button>
+        )}
       </div>
     </Container>
   )

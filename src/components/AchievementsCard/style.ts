@@ -8,7 +8,6 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   background-color: ${({ theme }) => theme.COLORS.blackBG};
   border-radius: 8px;
-  padding: 10px;
   width: 100%;
   align-items: center;
   justify-content: space-between;
@@ -19,9 +18,15 @@ export const Container = styled.div<ContainerProps>`
       display: flex;
       align-items: center;
       gap: 5px;
+      margin: 10px 0 0 10px;
 
       h2 {
         color: ${({ theme }) => theme.COLORS.primary};
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* Número máximo de linhas */
+        -webkit-box-orient: vertical;
       }
 
       span {
@@ -33,12 +38,17 @@ export const Container = styled.div<ContainerProps>`
     p {
       color: ${({ theme }) => theme.COLORS.text};
       font-size: 12px;
+      margin: 0 0 10px 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
     }
   }
 
   .buttons {
-    position: absolute;
-    display: ${({ isModalOpen }) => (isModalOpen ? 'none' : 'flex')};
+    justify-content: flex-end;
 
     .addButton {
       display: flex;
@@ -48,8 +58,6 @@ export const Container = styled.div<ContainerProps>`
       background: ${({ theme }) => theme.COLORS.greenBG};
       height: 53px;
       width: 53px;
-      position: relative;
-      left: 307px;
       border-radius: 0 8px 8px 0;
     }
 
@@ -61,8 +69,6 @@ export const Container = styled.div<ContainerProps>`
       background: ${({ theme }) => theme.COLORS.primary};
       height: 53px;
       width: 53px;
-      position: relative;
-      left: 307px;
       border-radius: 0 8px 8px 0;
     }
 

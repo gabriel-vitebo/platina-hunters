@@ -32,29 +32,19 @@ export function AchievementsCard({
     setIsModalOpen(false)
   }
 
-  function summarizeText(text: string, maxLength: number) {
-    if (text.length <= maxLength) {
-      return text
-    }
-    return text.slice(0, maxLength) + '...'
-  }
-
-  const summarizedTitle = summarizeText(title, 25)
-  const summarizedDescription = summarizeText(description, 50)
-
   return (
     <>
       <Container onClick={handleCardClick} isModalOpen={isModalOpen}>
         <div className="content">
           <div className="isItLost">
-            <h2>{summarizedTitle}</h2>
+            <h2>{title}</h2>
             {isDone ? (
               <span>15/02/99</span>
             ) : (
               isItLost && <span>(Perdível)</span>
             )}
           </div>
-          <p>{summarizedDescription}</p>
+          <p>{description}</p>
         </div>
         <div className="buttons">
           {isDone ? (

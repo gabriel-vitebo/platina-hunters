@@ -6,6 +6,7 @@ export const Container = styled.div`
   height: 100%;
   background-color: transparent;
   color: ${({ theme }) => theme.COLORS.text};
+  z-index: 2;
 
   .Content {
     width: 95%;

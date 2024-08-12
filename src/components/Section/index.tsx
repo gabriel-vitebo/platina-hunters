@@ -1,32 +1,49 @@
 import { Container } from './style.ts'
 import { ProgressBar } from '../ProgressBar'
 import { AchievementsCard } from '../AchievementsCard'
+import { useState } from 'react'
+import { preRegisteredGames } from '../../utils/preRegisteredGames.ts'
+interface Achievement {
+  title: string
+  description: string
+  isItLost: boolean
+  isDone: boolean
+}
 
 export function Section() {
+  const [achievements, setAchievements] = useState<Achievement[]>(
+    preRegisteredGames.assassinsCreedOdyssey,
+  )
+
+  const totalAchievements = achievements.length
+  const completedAchievements = achievements.filter(
+    (achievement) => achievement.isDone,
+  ).length
+  const progress = (completedAchievements / totalAchievements) * 100
+
+  const handleToggleAchievement = (index: number) => {
+    const newAchievements = [...achievements]
+    newAchievements[index].isDone = !newAchievements[index].isDone
+    setAchievements(newAchievements)
+  }
   return (
     <Container>
-      <ProgressBar progress={9} total={42} completed={4} statsSize={20} />
-      <AchievementsCard
-        title="Armas Lendárias"
-        description="Obteve todas as armas lendárias"
-        isItLost={false}
-        isDone={false}
+      <ProgressBar
+        progress={progress}
+        total={totalAchievements}
+        completed={completedAchievements}
+        statsSize={20}
       />
-      <AchievementsCard
-        title="Cinzas Lendárias"
-        description="Obteve todas as cinzas lendárias"
-        isItLost={true}
-        isDone={false}
-      />
-      <AchievementsCard
-        title="Bastardo Leolnino"
-        description="Derrotou o Bastardo Leonino"
-        isItLost={false}
-        isDone={true}
-      />
+      {achievements.map((achievement, index) => (
+        <AchievementsCard
+          key={index}
+          title={achievement.title}
+          description={achievement.description}
+          isItLost={achievement.isItLost}
+          isDone={achievement.isDone}
+          onToggle={() => handleToggleAchievement(index)}
+        />
+      ))}
     </Container>
   )
 }
-
-// todo: Criar o modal para ver a descrição completa da conquista, e  adaptar o css para
-//  aceitar tantos caracteres fora do modal

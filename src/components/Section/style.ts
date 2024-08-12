@@ -9,6 +9,9 @@ export const Container = styled.div`
   border-radius: 5px;
   background-color: ${({ theme }) => theme.COLORS.secondary};
 
+  max-height: 75vh; /* Altura máxima da section */
+  overflow-y: auto; /* Scroll vertical */
+
   .withoutContent {
     width: 100%;
     height: 476px;

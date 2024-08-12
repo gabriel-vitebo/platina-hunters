@@ -28,8 +28,8 @@ export const Container = styled.div`
   }
   button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 1px;
+    right: 1px;
     background: none;
     border: none;
     svg {

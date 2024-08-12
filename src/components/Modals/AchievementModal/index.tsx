@@ -8,7 +8,7 @@ interface AchievementModalProps {
   onClose: () => void
   handleToggle: () => void
   title: string
-  description: string
+  description?: string
 }
 
 export function AchievementModal({
@@ -41,9 +41,11 @@ export function AchievementModal({
             <MdAdd size={20} onClick={handleToggle} />
           )}
         </div>
-        <div className="descriptionBox">
-          <p>{description}</p>
-        </div>
+        {description && (
+          <div className="descriptionBox">
+            <p>{description}</p>
+          </div>
+        )}
       </div>
     </Container>
   )

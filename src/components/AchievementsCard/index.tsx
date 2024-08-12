@@ -8,20 +8,17 @@ interface AchievementsCardProps {
   description: string
   isItLost: boolean
   isDone: boolean
+  onToggle: () => void
 }
 
 export function AchievementsCard({
   title,
   description,
   isItLost,
-  isDone: initialIsDone,
+  isDone,
+  onToggle,
 }: AchievementsCardProps) {
-  const [isDone, setIsDone] = useState(initialIsDone)
   const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const handleToggle = () => {
-    setIsDone((prevIsDone) => !prevIsDone)
-  }
 
   const handleCardClick = () => {
     setIsModalOpen(true)
@@ -51,7 +48,7 @@ export function AchievementsCard({
               className="doneButton"
               onClick={(event) => {
                 event.stopPropagation()
-                handleToggle()
+                onToggle()
               }}
             >
               <MdDone size={40} />
@@ -61,7 +58,7 @@ export function AchievementsCard({
               className="addButton"
               onClick={(event) => {
                 event.stopPropagation()
-                handleToggle()
+                onToggle()
               }}
             >
               <MdAdd size={40} />
@@ -71,7 +68,7 @@ export function AchievementsCard({
       </Container>
 
       <AchievementModal
-        handleToggle={handleToggle}
+        handleToggle={onToggle}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         title={title}

@@ -7,6 +7,7 @@ interface MyGamesCardProps {
   completed: number
   total: number
   progress: number
+  isItAdded: boolean
 }
 
 export function MyGamesCard({
@@ -15,6 +16,7 @@ export function MyGamesCard({
   completed,
   total,
   progress,
+  isItAdded,
 }: MyGamesCardProps) {
   return (
     <Container progress={progress}>
@@ -25,6 +27,7 @@ export function MyGamesCard({
         completed={completed}
         total={total}
         statsSize={15}
+        isItAdded={isItAdded}
       />
       <div className="percentage">
         <p>{progress}%</p>

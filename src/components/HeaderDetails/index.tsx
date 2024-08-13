@@ -6,9 +6,10 @@ import { Container } from './style.ts'
 interface HeaderDetailsProps {
   isItAdded: boolean
   image: string
+  title: string
 }
 
-export function HeaderDetails({ isItAdded, image }: HeaderDetailsProps) {
+export function HeaderDetails({ isItAdded, image, title }: HeaderDetailsProps) {
   return (
     <Container>
       <button className="back-button">
@@ -17,7 +18,7 @@ export function HeaderDetails({ isItAdded, image }: HeaderDetailsProps) {
       </button>
       <img src={image} alt="" className="game-logo" />
       <div className="title-content">
-        <h1 className="game-title">Elden Ring</h1>
+        <h1 className="game-title">{title}</h1>
         {isItAdded ? (
           <IoIosCloseCircle className="added" size={20} />
         ) : (

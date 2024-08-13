@@ -32,7 +32,12 @@ export function SectionHome() {
         </button>
       </div>
       <div className="content">
-        <MainInput placeholder="Pesquisar Jogo" hasIcon={true} />
+        <MainInput
+          placeholder="Pesquisar Jogo"
+          hasIcon={true}
+          value=""
+          onChange={() => {}}
+        />
         {currentActiveButton === 'myGames' ? (
           <>
             <MyGamesCard
@@ -41,6 +46,7 @@ export function SectionHome() {
               total={93}
               completed={38}
               progress={43}
+              isItAdded={true}
             />
             <MyGamesCard
               image={eldenringImage}
@@ -48,6 +54,7 @@ export function SectionHome() {
               total={42}
               completed={4}
               progress={9}
+              isItAdded={true}
             />
             <MyGamesCard
               image={hogwartsLegacyImage}
@@ -55,6 +62,7 @@ export function SectionHome() {
               total={45}
               completed={45}
               progress={100}
+              isItAdded={true}
             />
           </>
         ) : (

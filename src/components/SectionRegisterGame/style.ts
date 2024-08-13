@@ -15,6 +15,18 @@ export const Container = styled.div`
   .achievements {
     width: 100%;
 
+    .stats {
+      align-items: center;
+      color: ${({ theme }) => theme.COLORS.primary};
+      display: flex;
+      gap: 5px;
+
+      > p {
+        margin-right: 5px;
+        font-size: 20px;
+      }
+    }
+
     button {
       width: 100%;
       border-radius: 5px;
@@ -23,6 +35,22 @@ export const Container = styled.div`
       background: ${({ theme }) => theme.COLORS.primary};
       color: ${({ theme }) => theme.COLORS.white};
       font-family: ${({ theme }) => theme.FONTS.default};
+    }
+    .achievementBox {
+      margin-top: 10px;
+      height: 150px;
+      overflow-y: auto;
+      background: ${({ theme }) => theme.COLORS.secondary};
+    }
+
+    .buttonRegister {
+      margin: 10px 0;
+      background: ${({ theme }) => theme.COLORS.greenBG};
+
+      &:disabled {
+        background: ${({ theme }) => theme.COLORS.locked};
+        color: ${({ theme }) => theme.COLORS.secondary};
+      }
     }
   }
 `

@@ -11,6 +11,7 @@ export default {
     greenBgHover: '#3fa62d',
     redBG: '#9D3D3D',
     redBgHover: '#e22626',
+    locked: '#5A5A5A',
   },
 
   FONTS: {

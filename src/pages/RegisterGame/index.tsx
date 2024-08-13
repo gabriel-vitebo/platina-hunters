@@ -16,7 +16,7 @@ export function RegisterGame() {
     <Container>
       <Header />
       <DropZone onFileUploaded={handleFileUpload} />
-      <SectionRegisterGame />
+      <SectionRegisterGame isItAdded={false} />
     </Container>
   )
 }

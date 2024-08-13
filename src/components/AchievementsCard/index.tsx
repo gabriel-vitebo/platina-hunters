@@ -8,6 +8,7 @@ interface AchievementsCardProps {
   description: string
   isItLost: boolean
   isDone: boolean
+  isItAdded: boolean
   onToggle: () => void
 }
 
@@ -16,6 +17,7 @@ export function AchievementsCard({
   description,
   isItLost,
   isDone,
+  isItAdded,
   onToggle,
 }: AchievementsCardProps) {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -34,37 +36,37 @@ export function AchievementsCard({
         <div className="content">
           <div className="isItLost">
             <h2>{title}</h2>
-            {isDone ? (
-              <span>15/02/99</span>
-            ) : (
-              isItLost && <span>(Perdível)</span>
-            )}
+            {isDone
+              ? isItAdded && <span>15/02/99</span>
+              : isItLost && <span>(Perdível)</span>}
           </div>
           <p>{description}</p>
         </div>
-        <div className="buttons">
-          {isDone ? (
-            <button
-              className="doneButton"
-              onClick={(event) => {
-                event.stopPropagation()
-                onToggle()
-              }}
-            >
-              <MdDone size={40} />
-            </button>
-          ) : (
-            <button
-              className="addButton"
-              onClick={(event) => {
-                event.stopPropagation()
-                onToggle()
-              }}
-            >
-              <MdAdd size={40} />
-            </button>
-          )}
-        </div>
+        {isItAdded && (
+          <div className="buttons">
+            {isDone ? (
+              <button
+                className="doneButton"
+                onClick={(event) => {
+                  event.stopPropagation()
+                  onToggle()
+                }}
+              >
+                <MdDone size={40} />
+              </button>
+            ) : (
+              <button
+                className="addButton"
+                onClick={(event) => {
+                  event.stopPropagation()
+                  onToggle()
+                }}
+              >
+                <MdAdd size={40} />
+              </button>
+            )}
+          </div>
+        )}
       </Container>
 
       <AchievementModal
@@ -74,6 +76,7 @@ export function AchievementsCard({
         title={title}
         description={description}
         isDone={isDone}
+        isItAdded={isItAdded}
       />
     </>
   )

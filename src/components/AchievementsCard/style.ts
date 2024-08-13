@@ -14,6 +14,7 @@ export const Container = styled.div<ContainerProps>`
   margin-bottom: 10px;
 
   .content {
+    height: 54px;
     > .isItLost {
       display: flex;
       align-items: center;

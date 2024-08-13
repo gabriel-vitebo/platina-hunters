@@ -6,6 +6,7 @@ interface ProgressBarProps {
   completed: number
   total: number
   statsSize: number
+  isItAdded: boolean
 }
 
 export function ProgressBar({
@@ -13,19 +14,26 @@ export function ProgressBar({
   completed,
   total,
   statsSize,
+  isItAdded,
 }: ProgressBarProps) {
   return (
     <Container progress={progress} statsSize={statsSize}>
       <div className="stats">
         <FaTrophy size={statsSize} />
-        <p>
-          {completed}/{total}
-        </p>
+        {isItAdded ? (
+          <p>
+            {completed}/{total}
+          </p>
+        ) : (
+          <p> {total}</p>
+        )}
       </div>
-      <div className="progress-bar">
-        <div className="circle"></div>
-        <div className="progress" style={{ width: `${progress}%` }}></div>
-      </div>
+      {isItAdded && (
+        <div className="progress-bar">
+          <div className="circle"></div>
+          <div className="progress" style={{ width: `${progress}%` }}></div>
+        </div>
+      )}
     </Container>
   )
 }

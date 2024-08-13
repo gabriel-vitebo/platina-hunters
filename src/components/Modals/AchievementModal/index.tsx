@@ -5,6 +5,7 @@ import { MdAdd, MdDone } from 'react-icons/md'
 interface AchievementModalProps {
   isOpen: boolean
   isDone: boolean
+  isItAdded: boolean
   onClose: () => void
   handleToggle: () => void
   title: string
@@ -14,6 +15,7 @@ interface AchievementModalProps {
 export function AchievementModal({
   isOpen,
   isDone,
+  isItAdded,
   onClose,
   handleToggle,
   title,
@@ -35,11 +37,12 @@ export function AchievementModal({
         </button>
         <div className="header">
           <h2>{title}</h2>
-          {isDone ? (
-            <MdDone size={20} onClick={handleToggle} />
-          ) : (
-            <MdAdd size={20} onClick={handleToggle} />
-          )}
+          {isItAdded &&
+            (isDone ? (
+              <MdDone size={20} onClick={handleToggle} />
+            ) : (
+              <MdAdd size={20} onClick={handleToggle} />
+            ))}
         </div>
         {description && (
           <div className="descriptionBox">

@@ -7,7 +7,7 @@ export function GameProgress() {
   return (
     <Container>
       <HeaderDetails isItAdded={true} image={eldenringImage} />
-      <SectionGameProgress />
+      <SectionGameProgress isItAdded={false} />
     </Container>
   )
 }

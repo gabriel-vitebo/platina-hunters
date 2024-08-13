@@ -12,30 +12,17 @@ export const Container = styled.div`
   max-height: 75vh;
   overflow-y: auto;
 
-  .withoutContent {
+  .achievements {
     width: 100%;
-    height: 476px;
-    background: ${({ theme }) => theme.COLORS.secondary};
-    color: ${({ theme }) => theme.COLORS.primary};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
 
-    > p {
-      font-size: 20px;
+    button {
+      width: 100%;
+      border-radius: 5px;
+      padding: 5px 0;
+      border: none;
+      background: ${({ theme }) => theme.COLORS.primary};
+      color: ${({ theme }) => theme.COLORS.white};
       font-family: ${({ theme }) => theme.FONTS.default};
     }
-  }
-
-  .progress-wrapper {
-    position: sticky;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: ${({ theme }) => theme.COLORS.secondary};
-    margin: 0;
-    padding-top: 10px;
   }
 `

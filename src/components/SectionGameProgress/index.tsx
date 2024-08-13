@@ -3,6 +3,7 @@ import { ProgressBar } from '../ProgressBar'
 import { AchievementsCard } from '../AchievementsCard'
 import { useState } from 'react'
 import { preRegisteredGames } from '../../utils/preRegisteredGames.ts'
+
 interface Achievement {
   title: string
   description: string
@@ -10,7 +11,11 @@ interface Achievement {
   isDone: boolean
 }
 
-export function SectionGameProgress() {
+interface SectionGameProgressProps {
+  isItAdded: boolean
+}
+
+export function SectionGameProgress({ isItAdded }: SectionGameProgressProps) {
   const [achievements, setAchievements] = useState<Achievement[]>(
     preRegisteredGames.assassinsCreedOdyssey,
   )
@@ -34,6 +39,7 @@ export function SectionGameProgress() {
           total={totalAchievements}
           completed={completedAchievements}
           statsSize={20}
+          isItAdded={isItAdded}
         />
       </div>
       {achievements.map((achievement, index) => (
@@ -43,6 +49,7 @@ export function SectionGameProgress() {
           description={achievement.description}
           isItLost={achievement.isItLost}
           isDone={achievement.isDone}
+          isItAdded={isItAdded}
           onToggle={() => handleToggleAchievement(index)}
         />
       ))}

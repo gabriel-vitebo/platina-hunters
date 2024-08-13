@@ -63,5 +63,9 @@ export const Container = styled.div`
     border-radius: 5px;
     max-height: 400px;
     overflow-y: auto;
+
+    p {
+      margin: 0 10px;
+    }
   }
 `

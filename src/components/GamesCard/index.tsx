@@ -1,5 +1,6 @@
 import { Container } from './style.ts'
 import { FaTrophy, FaPlus } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 interface MyGamesCardProps {
   image: string
@@ -14,8 +15,16 @@ export function GamesCard({
   totalAchievement,
   isItAdded,
 }: MyGamesCardProps) {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/gameprogress', {
+      state: { isItAdded, title, image },
+    })
+  }
+
   return (
-    <Container>
+    <Container onClick={handleClick}>
       <img src={image} alt="Imagem do jogo" />
       <h2>{title}</h2>
 

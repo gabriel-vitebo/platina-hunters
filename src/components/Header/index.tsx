@@ -3,9 +3,12 @@ import { BiArrowBack } from 'react-icons/bi'
 
 import { Container, PopUp } from './style.ts'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function Header() {
   const [popUp, setPopUp] = useState(false)
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -15,7 +18,9 @@ export function Header() {
           <div className="popUp">
             <ul>
               <li>
-                <button>Registar Jogo</button>
+                <button onClick={() => navigate('/registergame')}>
+                  Registar Jogo
+                </button>
               </li>
               <li>
                 <button>Editar Perfil</button>
@@ -32,7 +37,7 @@ export function Header() {
           <h1>Platina Hunters</h1>
           <div className="button">
             <BiArrowBack size={15} />
-            <button>Voltar</button>
+            <button onClick={() => navigate('/')}>Voltar</button>
           </div>
         </Container>
       )}

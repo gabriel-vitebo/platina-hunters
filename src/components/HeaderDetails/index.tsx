@@ -2,6 +2,7 @@ import { BiArrowBack } from 'react-icons/bi'
 import { IoIosCloseCircle, IoIosAddCircle } from 'react-icons/io'
 
 import { Container } from './style.ts'
+import { useNavigate } from 'react-router-dom'
 
 interface HeaderDetailsProps {
   isItAdded: boolean
@@ -10,9 +11,11 @@ interface HeaderDetailsProps {
 }
 
 export function HeaderDetails({ isItAdded, image, title }: HeaderDetailsProps) {
+  const navigate = useNavigate()
+
   return (
     <Container>
-      <button className="back-button">
+      <button className="back-button" onClick={() => navigate('/')}>
         <BiArrowBack size={15} className="back-icon" />
         voltar
       </button>

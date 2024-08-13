@@ -5,12 +5,12 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2px 7px 10px 10px;
-  border-radius: 5px;
+  padding: 0 7px 10px 10px;
+  border-radius: 0 0 5px 5px;
   background-color: ${({ theme }) => theme.COLORS.secondary};
 
-  max-height: 75vh; /* Altura máxima da section */
-  overflow-y: auto; /* Scroll vertical */
+  max-height: 75vh;
+  overflow-y: auto;
 
   .withoutContent {
     width: 100%;
@@ -27,5 +27,15 @@ export const Container = styled.div`
       font-size: 20px;
       font-family: ${({ theme }) => theme.FONTS.default};
     }
+  }
+
+  .progress-wrapper {
+    position: sticky;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: ${({ theme }) => theme.COLORS.secondary};
+    margin: 0;
+    padding-top: 10px;
   }
 `

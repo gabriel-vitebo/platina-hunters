@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { Container } from './style.ts'
-import { Search } from '../Search'
+import { MainInput } from '../MainInput'
 import { MyGamesCard } from '../MyGamesCard'
 import assassinsCreedImage from '../../assets/assassinscreed.png'
 import eldenringImage from '../../assets/eldenring.png'
@@ -32,7 +32,7 @@ export function SectionHome() {
         </button>
       </div>
       <div className="content">
-        <Search />
+        <MainInput placeholder="Pesquisar Jogo" hasIcon={true} />
         {currentActiveButton === 'myGames' ? (
           <>
             <MyGamesCard

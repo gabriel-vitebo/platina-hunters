@@ -8,6 +8,7 @@ export const Container = styled.div`
   border-radius: 8px;
   padding: 4px;
   margin: 10px 0;
+
   input {
     flex: 1;
     border: none;
@@ -17,6 +18,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.text};
     background-color: ${({ theme }) => theme.COLORS.whiteBG};
     border-radius: 4px 0 0 4px;
+    color: ${({ theme }) => theme.COLORS.black};
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.black};

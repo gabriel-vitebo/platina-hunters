@@ -10,7 +10,7 @@ interface Achievement {
   isDone: boolean
 }
 
-export function Section() {
+export function SectionGameProgress() {
   const [achievements, setAchievements] = useState<Achievement[]>(
     preRegisteredGames.assassinsCreedOdyssey,
   )
@@ -28,12 +28,14 @@ export function Section() {
   }
   return (
     <Container>
-      <ProgressBar
-        progress={progress}
-        total={totalAchievements}
-        completed={completedAchievements}
-        statsSize={20}
-      />
+      <div className="progress-wrapper">
+        <ProgressBar
+          progress={progress}
+          total={totalAchievements}
+          completed={completedAchievements}
+          statsSize={20}
+        />
+      </div>
       {achievements.map((achievement, index) => (
         <AchievementsCard
           key={index}
